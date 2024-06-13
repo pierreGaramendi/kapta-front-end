@@ -1,12 +1,14 @@
 import React from "react";
 import { Mail } from "lucide-react";
-import { useWorkspacesByUserId } from "@/modules/workspace/hooks/useWorkspacesById";
+/* import { useWorkspacesByUserId } from "@/modules/workspace/hooks/useWorkspacesById"; */
 import { AsideHeader } from "./components/AsideHeader";
 import { AsideItem } from "./components/AsideItem";
+import useUserWorkspaces from "@/modules/workspace/hooks/useUserWorkspaces";
 
 export const Aside: React.FC<{ visible: boolean }> = ({ visible }) => {
   const userId = "user_001";
-  const { workspaces } = useWorkspacesByUserId(userId);
+  const { workspaces, loading, error } = useUserWorkspaces(userId);
+  /* const { workspaces } = useWorkspacesByUserId(userId); */
   return (
     <aside
       className={`aside border-b bg-popover ${
@@ -26,7 +28,8 @@ export const Aside: React.FC<{ visible: boolean }> = ({ visible }) => {
               <Mail />
             </AsideItem>
           </li>
-          {workspaces.map((workspace) => (
+          
+           {workspaces.map((workspace) => (
             <li key={workspace._id}>
               <h3>{workspace.name}</h3>
             </li>

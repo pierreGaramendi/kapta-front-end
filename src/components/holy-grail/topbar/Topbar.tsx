@@ -3,7 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { SearchAll } from "../../custom/SearchAll";
 import { AvatarDropdownMenu } from "./AvatarDropDown";
-import { Menu } from "lucide-react";
+import { Menu, Plus } from "lucide-react";
 
 const Topbar: React.FC = () => {
   const toggleAside = useStore((state) => state.toggleAside);
@@ -13,6 +13,9 @@ const Topbar: React.FC = () => {
         <Menu className="h-4 w-4" />
       </Button>
       <SearchAll />
+      <Button size="icon">
+        <Plus className="h-4 w-4" />
+      </Button>
       <AvatarDropdownMenu></AvatarDropdownMenu>
     </header>
   );

@@ -1,4 +1,7 @@
-{
+// src/initializeDB.ts
+import { addData } from './dbOperations';
+
+const sampleData = {
   "users": [
     {
       "_id": "user_001",
@@ -176,4 +179,14 @@
       "color": "yellow"
     }
   ]
-}
+};
+
+const initializeDB = async () => {
+  await addData('users', sampleData.users);
+  await addData('workspaces', sampleData.workspaces);
+  await addData('lists', sampleData.lists);
+  await addData('comments', sampleData.comments);
+  await addData('labels', sampleData.labels);
+};
+
+export { initializeDB };

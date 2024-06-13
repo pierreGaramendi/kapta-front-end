@@ -9,7 +9,7 @@ export interface Workspace {
     _id: string;
     name: string;
     description: string;
-    boards: string[];
+    boards: Board[];
     members: string[];
 }
 
